@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pacman Game</title>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="GameLogic.js"></script>
+</head>
+
+<body>
+
+    <script>
+        initialProperties();
+    </script>
+
+    <header>
+        <div class="center" hidden="true">
+            Name of the app: Packman Game:
+            <br>
+            Our Names:
+            <br>
+            Lior Pizman
+            <br>
+            Yehuda Pashay
+        </div>
+    </header>
+
+    <main>
+        <div id="Menu">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-nav-demo" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand" onclick="HomeWindow()"><span
+                                class="glyphicon glyphicon-sunglasses"></span> Pacman</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-nav-demo">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" onclick="AboutShowWindow()"><span
+                                        class="glyphicon glyphicon-envelope"></span> About</a>
+                            </li>
+                            <li><a href="#" onclick="ContactShowWindow()"><span
+                                        class="	glyphicon glyphicon-earphone"></span> Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a id="WelcomeWindow" href="#" onclick="SignUpShowWindow()"><span
+                                        class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
+                            <li><a id="WelcomeWindow" href="#" onclick="LoginShowWindow()"><span
+                                        class="glyphicon glyphicon-user"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="Content">
+            <div class="center">
+                <img src="logo.png" alt="Pacman Logo" height="135" width="700">
+                <div id="MainWindow">
+                    <br><br>
+                    Welcome to the most famous game - <b>Pacman</b>. This is a new web version, hope you will enjoy it!
+                    <br><br>
+                    <div class="center">
+                        <button class="btn right-space" id="WelcomeWindow" href="#" onclick="SignUpShowWindow()">Sign
+                            Up</button>
+                        <button class="btn left-space" id="WelcomeWindow" href="#"
+                            onclick="LoginShowWindow()">Login</button>
+                    </div>
+                    <div class="center">
+                        <img src="BottomLogo.png" alt="Pacman BottomLogo" height="250" width="250">
+                    </div>
+                </div>
+            </div>
+
+            <div id="SignUpWindow" class="center" hidden="true">
+                <div class="center">
+                    <h2>Sign Up</h2><br>
+                    <form id="signupForm" name="signupForm" action="#">
+                        <span class="form-label">User Name:</span>
+                        </br>
+                        <input type="text" id="username" name="username" placeholder="Choose user name...">
+                        </br>
+                        <span class="form-label">Password:</span></br>
+                        <input type="password" id="password" name="password" placeholder="Choose password...">
+                        </br>
+                        <span class="form-label">First Name:</span></br>
+                        <input type="text" id="firstname" name="firstname" placeholder="Fill your first name...">
+                        </br>
+                        <span class="form-label">Last Name:</span></br>
+                        <input type="text" id="lastname" name="lastname" placeholder="Fill your last name...">
+                        </br>
+                        <span class="form-label">E-mail:</span></br>
+                        <input type="email" id="Email" name="Email" placeholder="Fill your email...">
+                        </br>
+                        <span class="form-label">Date of Birth:</span></br>
+                        <input type="date" id="date" name="date">
+                        </br> </br>
+                        <button type="submit" id="SignUpSubmit" class="btn right-space">Submit</button>
+                        <button id="BackBtn" class="btn left-space" onclick="Back()">Back</button>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+
+            <div id="LoginWindow" class="center" hidden="true">
+                <div class="center">
+                    <h2>Login</h2><br>
+                    <span class="form-label">User Name:</span></br>
+                    <input type="text" id="LoginUsername" name="LoginUsername" placeholder="Fill your user name...">
+                    </br>
+                    <span class="form-label">Password:</span></br>
+                    <input type="password" id="LoginPassword" name="LoginPassword" placeholder="Fill your password...">
+                    </br></br>
+                    <button id="LoginSubmit" class="btn right-space" onclick="Login()">Login</button>
+                    <button id="BackBtn" class="btn left-space" onclick="Back()">Back</button>
+                    <br><br>
+                </div>
+            </div>
+
+            <div id="Game" hidden="true">
+                <div id="container">
+                    <div id="left">
+                        Hello&nbsp<b><span id="playerName"></span></b>!
+                        <br><br>
+                        Score:
+                        <input id="lblScore" type="text" size="5" />
+                        <br><br>
+                        Time:
+                        <input id="lblTime" type="text" size="5" />
+                        <br><br>
+                        Lives Left:
+                        <input id="lblLives" type="text" size="5" />
+                        <br><br>
+                        <button id="StartNewGame" class="btn" onclick="NewGame()">Start New Game</button>
+                    </div>
+                    <div id="center">
+                        <canvas id="canvas" height="600" width="600"
+                            style="border: 8px dotted rgba(253,255,131,0.84); border-radius: 7px 0px 0px 0px; background: #202020;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ContactWindow" class="center" hidden="true">
+                <div class="center">
+                    <b>You can contact us by e-mail:</b>
+                    <li>pezman@post.bgu.ac.il</li>
+                    <li>yehudap@post.bgu.ac.il</li>
+                    <br>
+                    <b>or by phone: </b>
+                    <br>054-3453456
+                    <br><br>
+                </div>
+            </div>
+
+
+            <div id="GameOptions" class="center" hidden="true">
+                <div class="center">
+                    <span class="form-label"><b>Choose the number of balls in the game</b> <br>(min:50 max:90): </span>
+                    <input type="number" id="BallsNumber" name="BallsNumber" value=50 min="50" max="90">
+                    </br><br>
+                    <span class="form-label">
+                        <b>Select your favorite color for the balls:</b>
+                    </span></br>
+                    <span class="form-label">5 points ball's color : &nbsp</span><input type="color" id="5ptsBall"
+                        value="#FF66FF"><br>
+                    <span class="form-label">15 points ball's color : </li></span><input type="color" id="10ptsBall"
+                        value="#00FFFF"><br>
+                    <span class="form-label">25 points ball's color : </li></span><input type="color" id="15ptsBall"
+                        value="#FFFF00"><br><br>
+
+                    <span class="form-label"><b>Choose duration time for the game</b> <br>(min:60 sec):</span>
+                    <input type="number" id="GameTime" name="GameTime" value=60 min="60">
+                    </br><br>
+                    <span class="form-label"><b>Choose the number of game's ghosts</b> <br>(min:1 max:3):</span>
+                    <input type="number" id="GHNum" name="GHNum" value=1 min="1" max="3">
+                    </br><br>
+                    <span class="form-label">Choose up key:&nbsp&nbsp&nbsp&nbsp</span>
+                    <input id="upArrow" type="text" size="8" onkeydown="uniKeyCode(event, id)" maxlength="1"
+                        placeholder="ArrowUp">
+                    </br>
+                    <span class="form-label">Choose down key:</span>
+                    <input id="downArrow" type="text" size="8" onkeydown="uniKeyCode(event, id)" maxlength="1"
+                        placeholder="ArrowDown">
+                    </br>
+                    <span class="form-label">Choose left key:&nbsp&nbsp&nbsp</span>
+                    <input id="leftArrow" type="text" size="8" onkeydown="uniKeyCode(event, id)" maxlength="1"
+                        placeholder="ArrowLeft">
+                    </br>
+                    <span class="form-label">Choose right key:&nbsp</span>
+                    <input id="rightArrow" type="text" size="8" onkeydown="uniKeyCode(event, id)" maxlength="1"
+                        placeholder="ArrowRight">
+                    </br><br>
+                    <button id="OptionSubmit" class="btn right-space" onclick="SetOptionToGame()">Submit</button>
+                    <button id="RandomOptionSubmit" class="btn left-space" onclick="RandomOption()">Set Random
+                        Options</button>
+                    <br><br>
+                </div>
+            </div>
+
+            <div id="AboutWindow" class="modal">
+                <div class="modal-container">
+                    <header class="modal-header">
+                        <b>About Us</b>
+                        <span class="close" onclick="ExitModalWindow()">&times;</span>
+                    </header>
+                    <div class="model-content">
+                        <p class="aboutText">
+                            Our names : Yehuda Pashay and Lior Pizman <br><br>
+                            We are third year students in the Department of Software and Information Systems
+                            Engineering at Ben-Gurion University of the Negev.</p>
+                        <p>
+                            <br>
+                            We should add here:
+                            <li>We used jQuery for the game registration page. The validation process was done on the
+                                basis of it and we also created additional functions for handling submit event.</li>
+                            <br>
+                            <li>In the sign up form, we used highlighting text boxes for which a wrong input was
+                                received.</li>
+                            <br>
+                            <li>Obstacles in the project:<br>
+                                <ol>The first time we developed an Internet project of this kind. </ol>
+                                <ol>Adjusting the intervals to the characters in the game.</ol>
+                            </li>
+                            <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <b>Ⓒ Designed By Lior Pizman and Yehuda Pashay - 2019 Ⓒ <a href="#" id="contactLink"
+                    onclick="ContactShowWindow()"> Contact Us</a> </b>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
