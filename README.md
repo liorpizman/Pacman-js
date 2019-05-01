@@ -1,2 +1,8 @@
 # Pacman-js
-Project that simulates the famous Pacman game
+## Pacman Game
+
+---
+
+> Background
+
+Project classwork that simulates the famous Pacman game
