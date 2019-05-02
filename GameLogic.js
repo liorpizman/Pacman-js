@@ -576,19 +576,19 @@ function Draw() {
     for (var i = 0; i < boardSize; i++) {
         for (var j = 0; j < boardSize; j++) {
             var center = new Object();
-            center.x = i * 50 + 25;
-            center.y = j * 50 + 25;
+            center.x = i * 46 + 23;
+            center.y = j * 46 + 23;
             if (board[i][j] == 1) { /* draw pacman up */
-                context.drawImage(pacman_up, i * 50, j * 50, 50, 50);
+                context.drawImage(pacman_up, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 2) { /* draw pacman down */
-                context.drawImage(pacman_down, i * 50, j * 50, 50, 50);
+                context.drawImage(pacman_down, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 3) { /* draw pacman left */
-                context.drawImage(pacman_left, i * 50, j * 50, 50, 50);
+                context.drawImage(pacman_left, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 4) { /* draw pacman right */
-                context.drawImage(pacman_right, i * 50, j * 50, 50, 50);
+                context.drawImage(pacman_right, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 5) { /* draw 5 point ball */
                 context.beginPath();
@@ -609,25 +609,25 @@ function Draw() {
                 context.fill();
             }
             else if (board[i][j] == 6) { /* draw wall */
-                context.drawImage(WallImage, i * 50, j * 50, 50, 50);
+                context.drawImage(WallImage, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 7) { /* draw ghost 1 */
-                context.drawImage(ghost1, i * 50, j * 50, 50, 50);
+                context.drawImage(ghost1, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 8) {  /* draw ghost 2 */
-                context.drawImage(ghost2, i * 50, j * 50, 50, 50);
+                context.drawImage(ghost2, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 9) {  /* draw ghost 3 */
-                context.drawImage(ghost3, i * 50, j * 50, 50, 50);
+                context.drawImage(ghost3, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 11) {  /* draw moving score element */
-                context.drawImage(MovingScore, i * 50, j * 50, 50, 50);
+                context.drawImage(MovingScore, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 12) { /* draw life */
-                context.drawImage(Lives, i * 50, j * 50, 50, 50);
+                context.drawImage(Lives, i * 46, j * 46, 46, 46);
             }
             else if (board[i][j] == 13) {  /* draw clock */
-                context.drawImage(Clock, i * 50, j * 50, 50, 50);
+                context.drawImage(Clock, i * 46, j * 46, 46, 46);
             }
 
         }
