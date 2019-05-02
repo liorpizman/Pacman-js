@@ -878,7 +878,7 @@ function initialProperties() {
     MovingScore.src = 'MovingScore.png';
 
     Lives = new Image();
-    Lives.src = 'Lives.png';
+    Lives.src = 'lives.png';
     Clock = new Image();
     Clock.src = 'Clock.png';
     WallImage = new Image();
@@ -944,8 +944,16 @@ function ScreenDisplay(welcomeT, signUpT, loginT, gameT, gameOpT, mainT, contact
     ContactWindow = document.getElementById("ContactWindow").hidden = contactT;
 }
 
+/* Stops audio on background */
+function PauseBackgroundAudio(){
+    if (audio !== null & audio !== undefined){
+        audio.pause();
+    }
+}
+
 /* Opening a login window */
 function LoginShowWindow() {
+    PauseBackgroundAudio();
     ExitModalWindow();
     clearIntervals();
     ScreenDisplay(true, true, false, true, true, true, true);
@@ -955,6 +963,7 @@ function LoginShowWindow() {
 
 /* Opening a signup window */
 function SignUpShowWindow() {
+    PauseBackgroundAudio();
     ExitModalWindow();
     clearIntervals();
     ScreenDisplay(true, false, true, true, true, true, true);
@@ -968,6 +977,7 @@ function SignUpShowWindow() {
 
 /* Opening an about modal window */
 function AboutShowWindow() {
+    PauseBackgroundAudio();
     ExitModalWindow();
     clearIntervals();
     ScreenDisplay(true, true, true, true, true, true, true);
@@ -976,6 +986,7 @@ function AboutShowWindow() {
 
 /* Opening a contact window */
 function ContactShowWindow() {
+    PauseBackgroundAudio();
     ExitModalWindow();
     clearIntervals();
     ScreenDisplay(true, true, true, true, true, true, false);
@@ -989,6 +1000,7 @@ function ExitModalWindow() {
 
 /* Opening a home window */
 function HomeWindow() {
+    PauseBackgroundAudio();
     ExitModalWindow();
     clearIntervals();
     ScreenDisplay(true, true, true, true, true, false, true);
